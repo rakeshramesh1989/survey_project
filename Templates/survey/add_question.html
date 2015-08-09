@@ -1,0 +1,115 @@
+{% extends 'survey/about.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+    <div class="row">
+		<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		
+			
+			<div class="form-group">
+			   <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" aria-label="Left Align" id="survey_add_question" >
+  			   <span class="glyphicon glyphicon-plus" aria-hidden="true">
+  			   </span>
+			   </button><a>Add Question</a>
+			   <br/>
+			</div>
+	</div>
+	<div class="row">
+			<div id ="question_collapse">
+			  {% if questions %}
+			   
+			    {% for q in questions %}
+			    <div class="col-md-4 col-xs-4 col-sm-4 ">
+					<div class="thumbnail">
+				   <h5>{{q.question_description}}</h5>
+				   
+				   {% for choicelist in choices %}
+				      
+				      
+				      {% for c in choicelist %}
+				      	 
+				      	
+				        {% if q == c.question %}
+                           {% if forloop.counter == 1 %}
+                           <ul>
+                           {%endif %}
+                           <li>{{c.choice_description}}</li>
+                           
+                           {% if forloop.counter == choicelist|length %}
+                           </ul>
+                           {%endif %}
+				   			
+				   			
+                        {% endif %}
+				   	  {% endfor %}
+				   	 
+				   {% endfor %}
+				   
+				</div>
+				</div>
+				{% endfor %}
+				
+			      
+			      <br/>
+
+			  {% endif %}
+			
+		
+		</div>
+	</div>
+
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add question</h4>
+      </div>
+
+    	
+      <div class="modal-body">
+      	    <div id="error-msg" hidden>
+  			
+  			<div class="alert alert-danger" role="alert">
+  		    <div id ="msg"></div>
+  		    </div>
+  			</div>
+  			
+      		
+      <form id="create_question_form" name="add_question" method="post" 
+      action="/survey/create_question/{{survey_id}}/" >
+
+      	{% csrf_token %}
+      		{% csrf_token %}
+      		<div class="form-group">
+			<input type="hidden" value="{{survey_id}}" id="survey_id_value" class="form-control">
+      		</div>
+  			<div class="form-group">
+      		<input type="text" name="question_description" id="question_label" placeholder="Add Question Description" class="form-control">
+      		</div>
+      		<div id="choiceradiobutton_grp">
+      		</div>
+      		<button type="button" class="btn btn-primary btn-lg" aria-label="Left Align" id="add_choices_button" >
+  			  <span class="glyphicon glyphicon-plus" aria-hidden="true">
+  			  </span>
+			</button><a>Add Choices</a>
+	   </form>
+      	</div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" 
+              id="close_add_question_button">
+        	Close
+       </button>
+        <button type="button" id="add_question_button" class="btn btn-primary"> Create Question </button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+{% endblock %}

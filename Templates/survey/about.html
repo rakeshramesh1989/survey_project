@@ -1,0 +1,43 @@
+{% load staticfiles%}
+<html lang="en">
+  <head>
+    
+    <link rel="icon" href="http://getbootstrap.com/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <script src="{% static "js/jquery.js" %}"></script>
+    <script src="{% static "js/survey-ajax.js" %}"></script>
+    <title> {% block title_block %}   {% endblock %}</title>
+  </head>
+  <body>
+  <ul class="nav nav-tabs nav-justified">
+        <li role="presentation"><a href="#">Home</a></li>
+        <li role="presentation" class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" >
+          Survey <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+          <li><a href="/survey/create_survey"> Create Survey </a></li>
+          <li><a href="/survey/manage_survey">Manage Survey </a> </li>
+         </ul>
+        </li>
+         {% if user.is_authenticated %}
+        <li role="presentation"><a href="/survey/logout">Logout</a></li>
+        {% else %}
+        <li role="presentation"><a href="/survey/login">Login</a></li>
+        {% endif %}
+    </ul>
+    
+
+
+            {% block body_block %}
+                
+                {% endblock %}
+      </body>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="http://getbootstrap.com/assets/js/ie10-viewport-bug-workaround.js"></script>
+</html>
+
+
+ 

@@ -1,0 +1,89 @@
+.loginbox
+{
+	margin-top: 50px;
+	margin-bottom:50px;
+}
+#create_survey
+{
+	margin-top: 80px;
+	margin-bottom:50px;
+}
+#signup-name {
+    overflow: auto;
+}
+#signup-lastname
+{
+	float:right;
+	width:48.6%;
+}
+#signup-firstname
+{
+	float:left;
+	width:48.6%;
+}
+
+.dropdown-menu {
+  width: 100%; 
+}
+
+div.thumbnail ul  li {
+    
+    padding:0;
+    font-size: 12px;
+    margin:0;
+    color:#337ab7;
+    margin-bottom:5px;
+    margin-top: 5px;
+    list-style: disc inside none;
+
+}
+ol li {
+    
+    padding:0;
+    margin:0;
+    font-size: 20px;
+    color:#337ab7;
+    margin-top:30px;
+}
+.jumborton-margin
+{
+	margin-top: 15px;
+}
+div.thumbnail 
+{
+	
+	min-height:160px;
+}
+div.thumbnail h5
+{
+	color:#337ab7;
+}
+div.thumbnail div.body 
+{
+	overflow: scroll;
+	height: 20px;
+	min-height:40px;
+}
+
+div.thumbnail p
+{
+	color:#777;
+}
+
+
+
+div.footer
+{
+	
+	position: absolute;
+	margin-bottom: 30px;
+	bottom: 0; /*This is the part that glues it to the bottom*/
+    
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 10px;
+}
+
+

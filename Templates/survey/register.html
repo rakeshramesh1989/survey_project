@@ -1,0 +1,56 @@
+{% extends 'survey/about.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+		
+		<div class="loginbox">
+	    <div class="row">
+  		<div class="col-md-4 col-xs-4 col-sm-4"></div>
+  		<div class="col-md-4 col-xs-4 col-sm-4 ">
+  		  <h3 align="center"><a>Sign up</a></h3>
+  		  <div id="msg">
+  			{% if msg %}
+  			<div class="alert alert-danger" role="alert">
+  		    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+  			</span>
+  			<span class="sr-only">Error:</span>
+  				{{msg}}
+			</div>
+  			</div>
+  			{% endif %}
+
+		<form id="login_form" method="post" action="/survey/register/">
+		{% csrf_token %}
+		<div class="form-group">
+			<div class = "form-group" id="signup-firstname">
+				<input type="text" class="form-control" name="first_name"  placeholder="firstname" />
+			</div>
+			<div class = "form-group" id="signup-lastname">
+				<input type="text" class="form-control" name="last_name"  placeholder="lastname" />
+		   </div>
+		</div>
+		<div class="form-group">
+		<input type="text" class="form-control" name="username" id="username" placeholder="username" />
+		</div>
+		<div class="form-group">
+		<input type="text" class="form-control" name="email" id="email" placeholder="email" />
+		</div>
+		
+		<div class="form-group">
+		<input type="password" class="form-control" name="password" id="password" placeholder="password" />
+		</div>
+		 <a href="/survey/login"> Already registered click here to login </a>
+		<input type="submit" id="login-button" value="Sign Up"  class="form-control btn btn-primary"/>
+		</div>
+		</form>
+ 	</div>
+ </div>
+
+
+
+ 		
+{% endblock %}
+</html>

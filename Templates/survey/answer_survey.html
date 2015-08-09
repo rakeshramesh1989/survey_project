@@ -1,0 +1,16 @@
+<html>
+<head><title>Answer Survey</title></head>
+<body>
+	<h2>{{survey.survey_name}}</h2>
+	{{survey.survey_description}}
+	{% for q in survey.questions %}
+		<ul>{{ q.question_description }} 
+			{% for c in q.question_choices %}
+			<li>{{ c.choice_description }} </li>
+			{% endfor %}
+		 </ul>
+	{% endfor %}
+
+</body>
+</html>
+

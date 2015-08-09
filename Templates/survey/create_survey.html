@@ -1,0 +1,38 @@
+{% extends 'survey/about.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+	<div class="row">
+		<div class="col-md-4 col-xs-4 col-sm-4"></div>
+		<div class="col-md-4 col-xs-4 col-sm-4">
+			{% if msg %}
+  			<div class="alert alert-danger" role="alert">
+  		    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true">
+  			</span>
+  			<span class="sr-only">Error:</span>
+  				{{msg}}
+			</div>
+  			{% endif %}
+  			<form id="create_survey" action="/survey/create_survey/" method="post" >
+  				{% csrf_token %}
+  				<div class="form-group">
+					<input type="text" class="form-control" name="survey_name" id="survey_name" placeholder="Survey Title" />
+				</div>
+				<div class="form-group">
+				<textarea class="form-control" name="survey_description" id="survey_description" placeholder="Enter Survey Description" rows="8"></textarea>
+				</div>
+				<br/>
+				
+				<input type="submit" value="Create Survey" class="btn btn-primary">
+
+  			</form>
+  		</div>
+
+    </div>
+
+    <!-- Modal -->
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'survey/about.html' %}
+{% load staticfiles %}
+
+{% block title %}Login{% endblock %}
+
+{% block body_block %}
+
+
+	<div id ="message">
+		{{msg}}
+	</div>
+	{% if user.is_authenticated %}
+
+		
+		 <a href="/survey/logout">Click here to logout</a>
+	{% else %}
+
+	  <a href="/survey/login">click here to login</a>
+
+
+	{%endif %}
+{% endblock %}

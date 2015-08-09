@@ -1,0 +1,35 @@
+{% extends 'survey/about.html' %}
+{% load staticfiles %}
+
+{% block title %}Manage Survey{% endblock %}
+
+{% block body_block %}
+{% if surveylist %}
+<div class ="row">
+	{% for survey in surveylist %}
+	    <div class="col-sm-6 col-md-4">
+	    	<div class="thumbnail">
+				 <div class="caption"> 
+				   <h5>{{survey.survey_name}}</h5>
+				   <div class="body">
+				   <p> {{survey.survey_description}} </p>
+					</div>
+					</div>
+				   <div class="footer">
+				   	<div class="col-md-6 col-xs-6 col-sm-6 ">
+				    <a class="btn btn-primary btn-width" href="survey/edit_survey/{{survey.survey_id}}/" type="button" > Edit Survey </a>
+				   </div>
+
+				   <div class="col-md-5 col-xs-5 col-sm-5 ">
+				   <a class="btn btn-primary btn-width" href="{% url 'create_question' survey.survey_id %}" type="button"> Add Question </a>
+				  </div>
+				   </div>
+				   
+				
+		    </div>
+		</div>
+	{% endfor %}
+
+</div>
+{% endif %}
+{% endblock %}
